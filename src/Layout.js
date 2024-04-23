@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 
 const Layout = () =>{
@@ -19,10 +19,12 @@ const Layout = () =>{
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Add todo</a>
+          <Link  class="nav-link active" to="addtodo">Add todo</Link>
+       
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">List</a>
+        <Link  class="nav-link active" to="list">List</Link>
+       
         </li>
        
        
