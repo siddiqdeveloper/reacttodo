@@ -18,6 +18,10 @@ root.render(
 
        <Route path='addtodo' index element={<AddTodo/>} ></Route>
        <Route path='list' index element={<List/>} ></Route>
+
+
+       <Route path='edit/:code' index element={<AddTodo/>} ></Route>
+
       </Route>
     </Routes>
     
