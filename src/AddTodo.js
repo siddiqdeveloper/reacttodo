@@ -18,7 +18,7 @@ const AddTodo = () =>{
 
             setLable('Update Task');
 
-            axios.get('https://crudcrud.com/api/a7b2b44075644970a7c6f710cc41d84c/unicorns/'+params.code)
+            axios.get('https://crudcrud.com/api/8fcd4c40431a40218b949a2be84c3558/unicorns/'+params.code)
             .then((res)=>{
                 console.log(res.data);
 
@@ -31,17 +31,34 @@ const AddTodo = () =>{
 
 
     const save = ()=>{
-        console.log(todo);
         let data = {name:todo};
-        axios.post('https://crudcrud.com/api/a7b2b44075644970a7c6f710cc41d84c/unicorns',data)
-        .then((res)=>{
-            console.log(res);
-            setTodo('');
-            inputref.current.value = '';
-            showToast.success('Todo Added successful')
+        console.log(todo);
+        if(params.code){
 
+            axios.put('https://crudcrud.com/api/8fcd4c40431a40218b949a2be84c3558/unicorns/'+params.code,data)
+            .then((res)=>{
+                console.log(res);
+                setTodo('');
+                inputref.current.value = '';
+                showToast.success('Todo Updated Successfully')
+    
+            })
 
-        })
+        }else{
+           
+        
+            axios.post('https://crudcrud.com/api/8fcd4c40431a40218b949a2be84c3558/unicorns',data)
+            .then((res)=>{
+                console.log(res);
+                setTodo('');
+                inputref.current.value = '';
+                showToast.success('Todo Added successful')
+    
+            })
+
+        }
+
+       
     }
     return <>
      <div class="container">
