@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { showToast } from 'react-next-toast';
 import { useParams } from "react-router-dom";
-
-
+import { URL } from './config';
 const AddTodo = () =>{
 
     const [todo,setTodo] = useState('');
@@ -18,7 +17,7 @@ const AddTodo = () =>{
 
             setLable('Update Task');
 
-            axios.get('https://crudcrud.com/api/8fcd4c40431a40218b949a2be84c3558/unicorns/'+params.code)
+            axios.get(URL+params.code)
             .then((res)=>{
                 console.log(res.data);
 
@@ -35,7 +34,7 @@ const AddTodo = () =>{
         console.log(todo);
         if(params.code){
 
-            axios.put('https://crudcrud.com/api/8fcd4c40431a40218b949a2be84c3558/unicorns/'+params.code,data)
+            axios.put(URL+params.code,data)
             .then((res)=>{
                 console.log(res);
                 setTodo('');
@@ -47,7 +46,7 @@ const AddTodo = () =>{
         }else{
            
         
-            axios.post('https://crudcrud.com/api/8fcd4c40431a40218b949a2be84c3558/unicorns',data)
+            axios.post(URL,data)
             .then((res)=>{
                 console.log(res);
                 setTodo('');

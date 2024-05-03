@@ -6,6 +6,7 @@ import Layout from './Layout';
 import AddTodo from './AddTodo';
 import  './style.css'
 import List from './List';
+import Dashbaord from './Dashabord';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +16,9 @@ root.render(
     <BrowserRouter>
     <Routes>
       <Route path=''  element={<Layout/>} >
+
+
+        <Route path="" index element={<Dashbaord/>} ></Route>
 
        <Route path='addtodo' index element={<AddTodo/>} ></Route>
        <Route path='list' index element={<List/>} ></Route>

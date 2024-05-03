@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
-
+import { URL } from './config';
 
 const List =  () =>{
 
@@ -14,7 +14,7 @@ const List =  () =>{
 
 
     const getData = ()=>{
-      axios.get('https://crudcrud.com/api/8fcd4c40431a40218b949a2be84c3558/unicorns')
+      axios.get(URL)
       .then((res)=>{
           setTodos(res.data);
           console.log(res.data);
@@ -38,7 +38,7 @@ const List =  () =>{
       data.status = 'completed';
       delete data._id;
       
-      axios.put('https://crudcrud.com/api/8fcd4c40431a40218b949a2be84c3558/unicorns/'+id,item)
+      axios.put(URL+id,item)
             .then((res)=>{
                 getData();
     
@@ -58,7 +58,7 @@ const List =  () =>{
             onClick: () =>{
 
 
-              axios.delete('https://crudcrud.com/api/8fcd4c40431a40218b949a2be84c3558/unicorns/'+item._id)
+              axios.delete(URL+item._id)
               .then((res)=>{
                 getData();
               })

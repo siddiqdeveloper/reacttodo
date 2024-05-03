@@ -15,7 +15,7 @@ const Layout = () =>{
       <ul class="navbar-nav">
 
       <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Dahboard</a>
+      <Link  class="nav-link active" to="">Dashabord</Link>
         </li>
 
         <li class="nav-item">
